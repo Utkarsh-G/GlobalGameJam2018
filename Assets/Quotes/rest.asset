@@ -15,3 +15,5 @@ MonoBehaviour:
   Keys:
   - rest
   - weary
+  Banned:
+  - weari

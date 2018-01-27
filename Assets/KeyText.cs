@@ -16,10 +16,12 @@ using UnityEngine;
 public class KeyText{
 	public string Sentence;
 	public string[] KeyWords;
+	public string[] BannedWords;
 
-	public KeyText(string sent, string[] keys)
+	public KeyText(string sent, string[] keys, string[] banned)
 	{
 		Sentence = sent; 
 		KeyWords = keys; 
+		BannedWords = banned;
 	}
 }

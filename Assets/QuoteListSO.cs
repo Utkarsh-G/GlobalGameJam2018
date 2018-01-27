@@ -14,4 +14,5 @@ public class QuoteListSO : ScriptableObject {
 public class QuoteObj : ScriptableObject{
 	public string Quote;
 	public string[] Keys;
+	public string[] Banned;
 }

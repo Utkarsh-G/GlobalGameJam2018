@@ -16,3 +16,5 @@ MonoBehaviour:
   - rolling
   - stone
   - moss
+  Banned:
+  - roll

@@ -19,6 +19,7 @@ public class SceneManager : MonoBehaviour {
 	public Text QuoteText;
 	public InputField UserText;
 	public Text Warning1;
+	public Text BannedText;
 
 	public QuoteListSO qList;
 	KeyText keyText;
@@ -37,17 +38,28 @@ public class SceneManager : MonoBehaviour {
 		Panel1.SetActive (true);
 		Panel2.SetActive (false);
 
-		keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
+		QuoteObj myQuote = qList.QuoteList [1];
+
+		keyText = new KeyText (myQuote.Quote, myQuote.Keys, myQuote.Banned);
 		UserText.text = "";
 
 		QuoteText.text = keyText.Sentence;
+		string BanList = "Ban List: ";
+		foreach (string word in keyText.KeyWords) {
+			BanList += "\n" + word;
+		}
+		foreach (string word in keyText.BannedWords) {
+			BanList += "\n" + word;
+		}
+		BannedText.text = BanList;
+
 	}
 
 	public void SubmitUserText(){
 		Warning1.text = "";
 
 		if (!SanitizeInput (UserText.text)) {
-			Warning1.text = "Invalid input. Avoid keywords. \nAllowed input: A-Z a-z . ? ' ,";
+			Warning1.text = "Invalid input. Avoid banned words. \nAllowed input: A-Z a-z . ? ' ,";
 			return;
 		}
 
@@ -55,13 +67,20 @@ public class SceneManager : MonoBehaviour {
 
 	}
 
-	bool SanitizeInput(string text){ //TODO: prohibit "related words"
+	bool SanitizeInput(string text){ //Got a non-reproducible error here :( :( Some kind of "object not set" in line 74
 		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?',]+$");
 		bool isClean = rgx.IsMatch (text);
+		//Debug.Log ("Show text: " + text + " \nShow key:" + keyText.KeyWords [0]);
 		foreach (string key in keyText.KeyWords) {
 			bool hasKey = Regex.IsMatch (text, key);
 			isClean = isClean && !hasKey;
 		}
+
+		foreach (string key in keyText.BannedWords) {
+			bool hasKey = Regex.IsMatch (text, key);
+			isClean = isClean && !hasKey;
+		}
+
 		return isClean;
 	}
 
