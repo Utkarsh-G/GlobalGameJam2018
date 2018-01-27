@@ -28,20 +28,25 @@ public class Texter : MonoBehaviour {
 	}
 
 	public void CheckTextForKey(){
+
+		SanitizeInput (inText.text);
+
 		int score = 0;
 		string hits = "";
+		List<string> matchedWords = new List<string> ();
 
 		keyText = new KeyText ();
 
-		string pattern = @" ";
+		string pattern = @"[\s\.\?']";
 		string[] words = Regex.Split (inText.text, pattern);
 
 		foreach (string word in words) {
 			foreach (string keyword in keyText.KeyWords) {
-				if (word == keyword) {
-					Debug.Log ("Matched: " + word);
+				if (!matchedWords.Contains(word.ToLower()) && word.ToLower() == keyword.ToLower()) {
+					//Debug.Log ("Matched: " + keyword);
 					score++;
-					hits += word + "\n";
+					hits += keyword + "\n";
+					matchedWords.Add (keyword.ToLower());
 				}
 			}
 
@@ -49,6 +54,12 @@ public class Texter : MonoBehaviour {
 
 		scoreText.text = hits + "Score:" + score.ToString ();
 		
+	}
+
+	void SanitizeInput(string text){
+		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?']+$");
+		bool isClean = rgx.IsMatch (text);
+		Debug.Log ("Is clean input: " + isClean);
 	}
 
 }

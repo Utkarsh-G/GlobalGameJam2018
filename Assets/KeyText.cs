@@ -19,7 +19,7 @@ public class KeyText{
 
 	public KeyText()
 	{
-		Sentence = "This is a special sentence. It has text.";
-		KeyWords = new string[] {"special", "text", "It"};
+		Sentence = "This is a special sentence. It has text n.";
+		KeyWords = new string[] {"special", "text", "It", "text"};
 	}
 }
