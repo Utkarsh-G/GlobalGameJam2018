@@ -17,9 +17,9 @@ public class KeyText{
 	public string Sentence;
 	public string[] KeyWords;
 
-	public KeyText()
+	public KeyText(string sent, string[] keys)
 	{
-		Sentence = "This is a special sentence. It has text n.";
-		KeyWords = new string[] {"special", "text", "It", "text"};
+		Sentence = sent; //"This is a special sentence. It has text n.";
+		KeyWords = keys; //new string[] {"special", "text", "It", "text"};
 	}
 }

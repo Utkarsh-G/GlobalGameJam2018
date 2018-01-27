@@ -17,10 +17,12 @@ public class Texter : MonoBehaviour {
 	public Text inText;
 	public Text scoreText;
 	public Text warningText;
+	public QuoteListSO qList;
 
 	// Use this for initialization
 	void Start () {
-		
+		keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
+		Debug.Log (keyText.Sentence);
 	}
 	
 	// Update is called once per frame
@@ -33,7 +35,7 @@ public class Texter : MonoBehaviour {
 		warningText.text = "";
 
 		if (!SanitizeInput (inText.text)) {
-			warningText.text = "Invalid characters. \nAllowed input: A-Z a-z . ? '";
+			warningText.text = "Invalid characters. \nAllowed input: A-Z a-z . ? ' ,";
 			return;
 		}
 			
@@ -42,9 +44,9 @@ public class Texter : MonoBehaviour {
 		string hits = "";
 		List<string> matchedWords = new List<string> ();
 
-		keyText = new KeyText ();
 
-		string pattern = @"[\s\.\?']";
+
+		string pattern = @"[\s\.\?',]";
 		string[] words = Regex.Split (inText.text, pattern);
 
 		foreach (string word in words) {
@@ -64,7 +66,7 @@ public class Texter : MonoBehaviour {
 	}
 
 	bool SanitizeInput(string text){
-		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?']+$");
+		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?',]+$");
 		bool isClean = rgx.IsMatch (text);
 		Debug.Log ("Is clean input: " + isClean);
 		return isClean;
