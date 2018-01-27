@@ -16,6 +16,7 @@ public class Texter : MonoBehaviour {
 	public KeyText keyText;
 	public Text inText;
 	public Text scoreText;
+	public Text warningText;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,13 @@ public class Texter : MonoBehaviour {
 
 	public void CheckTextForKey(){
 
-		SanitizeInput (inText.text);
+		warningText.text = "";
+
+		if (!SanitizeInput (inText.text)) {
+			warningText.text = "Invalid characters. \nAllowed input: A-Z a-z . ? '";
+			return;
+		}
+			
 
 		int score = 0;
 		string hits = "";
@@ -53,13 +60,14 @@ public class Texter : MonoBehaviour {
 		}
 
 		scoreText.text = hits + "Score:" + score.ToString ();
-		
+
 	}
 
-	void SanitizeInput(string text){
+	bool SanitizeInput(string text){
 		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?']+$");
 		bool isClean = rgx.IsMatch (text);
 		Debug.Log ("Is clean input: " + isClean);
+		return isClean;
 	}
 
 }
