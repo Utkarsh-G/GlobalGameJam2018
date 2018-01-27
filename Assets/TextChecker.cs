@@ -64,8 +64,13 @@ public class TextChecker : MonoBehaviour {
 			}
 
 		}
+		string exactMatchPattern = "^" + keyText.Sentence + "$";
+		bool isExactMatch = Regex.IsMatch (inText.text, exactMatchPattern);
 
-		scoreText.text ="Hits:\n" + hits + "\nScore:" + score.ToString ();
+		string exactMatchLog = isExactMatch ? "\nExact Match! +2" : "";
+		score = isExactMatch ? score + 2 : score;
+
+		scoreText.text ="Hits:\n" + hits + exactMatchLog + "\nScore:" + score.ToString ();
 
 		RetryButton.SetActive (true);
 		NewTextButton.SetActive (true);

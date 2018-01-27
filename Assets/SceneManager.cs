@@ -41,7 +41,7 @@ public class SceneManager : MonoBehaviour {
 		TextCheckerPanel.SetActive (false);
 		MenuPanel.SetActive (false);
 
-		QuoteObj myQuote = qList.QuoteList [1];
+		QuoteObj myQuote = qList.QuoteList [0];
 
 		keyText = new KeyText (myQuote.Quote, myQuote.Keys, myQuote.Banned);
 		quoteLoader.initQuoteLoader (keyText);
