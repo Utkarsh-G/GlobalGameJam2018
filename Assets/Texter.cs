@@ -14,25 +14,13 @@ using System.Text.RegularExpressions;
 public class Texter : MonoBehaviour {
 	public KeyText keyText;
 	public Text dispUserText;
-	//public Text inText;
 	public InputField inText;
 	public Text scoreText;
 	public Text warningText;
 
 	public GameObject RetryButton;
 	public GameObject NewTextButton;
-	//public QuoteListSO qList;
 
-	// Use this for initialization
-	void Start () {
-		//keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
-		//Debug.Log (keyText.Sentence);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public void initTexter(KeyText inKeyText, string userInput){
 		keyText = inKeyText;
@@ -68,7 +56,6 @@ public class Texter : MonoBehaviour {
 		foreach (string word in words) {
 			foreach (string keyword in keyText.KeyWords) {
 				if (!matchedWords.Contains(word.ToLower()) && word.ToLower() == keyword.ToLower()) {
-					//Debug.Log ("Matched: " + keyword);
 					score++;
 					hits += keyword + "\n";
 					matchedWords.Add (keyword.ToLower());
@@ -77,7 +64,7 @@ public class Texter : MonoBehaviour {
 
 		}
 
-		scoreText.text = hits + "Score:" + score.ToString ();
+		scoreText.text ="Hits:\n" + hits + "\nScore:" + score.ToString ();
 
 		RetryButton.SetActive (true);
 		NewTextButton.SetActive (true);
@@ -87,7 +74,6 @@ public class Texter : MonoBehaviour {
 	bool SanitizeInput(string text){
 		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?',]+$");
 		bool isClean = rgx.IsMatch (text);
-		Debug.Log ("Is clean input: " + isClean);
 		return isClean;
 	}
 

@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 
+/*
+ * The peer of Texter.cs, this class
+ * manages the intake of user text
+ * for panel 1. It also can switch between panels.
+ * 
+ */
+
 public class SceneManager : MonoBehaviour {
 	public Texter myTexter;
 	public GameObject Panel1;
@@ -13,15 +20,12 @@ public class SceneManager : MonoBehaviour {
 	public InputField UserText;
 	public Text Warning1;
 
-	//public Text DispUserText;
-	//public Text TextToCheck;
-	//public Text Warning2;
-
 	public QuoteListSO qList;
 	KeyText keyText;
 
 	string UserInput;
 	KeyText Quote;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,7 +39,6 @@ public class SceneManager : MonoBehaviour {
 
 		keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
 		UserText.text = "";
-		//Debug.Log (keyText.Sentence);
 
 		QuoteText.text = keyText.Sentence;
 	}
@@ -52,20 +55,16 @@ public class SceneManager : MonoBehaviour {
 
 	}
 
-	bool SanitizeInput(string text){ //TODO: remove
+	bool SanitizeInput(string text){ //TODO: prohibit use of keywords
 		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?',]+$");
 		bool isClean = rgx.IsMatch (text);
-		Debug.Log ("Is clean input: " + isClean);
 		return isClean;
 	}
 
 	void SwitchToCheckMode(){
 		Panel1.SetActive (false);
 		Panel2.SetActive (true);
-
 		myTexter.initTexter (keyText, UserText.text);
-
-
 	}
 
 }
