@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
  */
 
 public class QuoteLoader : MonoBehaviour {
-	public SceneManager myManager;
+	//public SceneManager myManager;
 	
 	public Text QuoteText;
 	public InputField UserText;
@@ -37,15 +37,16 @@ public class QuoteLoader : MonoBehaviour {
 		BannedText.text = BanList;
 	}
 
-	public void SubmitUserText(){
+	public string SubmitUserText(){
 		Warning1.text = "";
 
 		if (!SanitizeInput (UserText.text)) {
 			Warning1.text = "Invalid input. Avoid banned words. \nAllowed input: A-Z a-z . ? ' ,";
-			return;
+			return "";
 		}
 
-		myManager.FromLoaderToChecker (UserText.text);
+		//myManager.FromLoaderToChecker (UserText.text);
+		return UserText.text;
 
 	}
 

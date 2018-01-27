@@ -485,7 +485,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1106019195}
-        m_MethodName: initScene
+        m_MethodName: StartLoader
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -841,7 +841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e57ff4ab21c8464e85c3ece7dee9a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myManager: {fileID: 1106019195}
   QuoteText: {fileID: 42302852}
   UserText: {fileID: 1332458443}
   Warning1: {fileID: 1284928823}
@@ -1008,7 +1007,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1023285214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1106019195}
+        m_MethodName: StartLoader
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1023285214
@@ -1074,6 +1084,7 @@ MonoBehaviour:
   myTexter: {fileID: 1168459631}
   QuoteLoaderPanel: {fileID: 2060159995}
   TextCheckerPanel: {fileID: 1958071777}
+  MenuPanel: {fileID: 1840469647}
   quoteLoader: {fileID: 861535053}
   qList: {fileID: 11400000, guid: 2449d0752ca0a42498a0825123b86fa5, type: 2}
 --- !u!4 &1106019196
@@ -1166,7 +1177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1106019195}
-        m_MethodName: SubmitUserText
+        m_MethodName: FromLoaderToChecker
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2570,7 +2581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1840469648
 RectTransform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class SceneManager : MonoBehaviour {
 	public TextChecker myTexter;
 	public GameObject QuoteLoaderPanel;
 	public GameObject TextCheckerPanel;
+	public GameObject MenuPanel;
 
 	public QuoteLoader quoteLoader;
 
@@ -24,14 +25,21 @@ public class SceneManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		this.initScene ();
+		GoToMenu ();
 	}
 
-	public void initScene()
+	public void GoToMenu()
+	{
+		QuoteLoaderPanel.SetActive (false);
+		TextCheckerPanel.SetActive (false);
+		MenuPanel.SetActive (true);
+	}
+
+	public void StartLoader()
 	{
 		QuoteLoaderPanel.SetActive (true);
 		TextCheckerPanel.SetActive (false);
+		MenuPanel.SetActive (false);
 
 		QuoteObj myQuote = qList.QuoteList [1];
 
@@ -40,10 +48,16 @@ public class SceneManager : MonoBehaviour {
 
 	}
 
-	public void FromLoaderToChecker(string userText){
-		QuoteLoaderPanel.SetActive (false);
-		TextCheckerPanel.SetActive (true);
-		myTexter.initTexter (keyText, userText);
+	public void FromLoaderToChecker(){
+
+		string userText = quoteLoader.SubmitUserText ();
+
+		if (userText != "") {
+			QuoteLoaderPanel.SetActive (false);
+			TextCheckerPanel.SetActive (true);
+			myTexter.initTexter (keyText, userText);
+		}
+
 	}
 
 }
