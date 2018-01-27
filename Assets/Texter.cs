@@ -12,22 +12,38 @@ using System.Text.RegularExpressions;
  */
 
 public class Texter : MonoBehaviour {
-
 	public KeyText keyText;
-	public Text inText;
+	public Text dispUserText;
+	//public Text inText;
+	public InputField inText;
 	public Text scoreText;
 	public Text warningText;
-	public QuoteListSO qList;
+
+	public GameObject RetryButton;
+	public GameObject NewTextButton;
+	//public QuoteListSO qList;
 
 	// Use this for initialization
 	void Start () {
-		keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
-		Debug.Log (keyText.Sentence);
+		//keyText = new KeyText (qList.QuoteList[0].Quote, qList.QuoteList[0].Keys);
+		//Debug.Log (keyText.Sentence);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void initTexter(KeyText inKeyText, string userInput){
+		keyText = inKeyText;
+		dispUserText.text = userInput;
+		warningText.text = "";
+		inText.text = "";
+		scoreText.text = "";
+
+		RetryButton.SetActive (false);
+		NewTextButton.SetActive (false);
+
 	}
 
 	public void CheckTextForKey(){
@@ -63,6 +79,9 @@ public class Texter : MonoBehaviour {
 
 		scoreText.text = hits + "Score:" + score.ToString ();
 
+		RetryButton.SetActive (true);
+		NewTextButton.SetActive (true);
+
 	}
 
 	bool SanitizeInput(string text){
@@ -72,4 +91,9 @@ public class Texter : MonoBehaviour {
 		return isClean;
 	}
 
+	public void Retry()
+	{
+		this.initTexter (keyText, dispUserText.text);
+	}
+		
 }

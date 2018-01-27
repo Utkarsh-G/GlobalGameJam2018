@@ -11,3 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69304557d3f874951805a1e74a31ff8c, type: 3}
   m_Name: QuoteList
   m_EditorClassIdentifier: 
+  QuoteList:
+  - {fileID: 11400000, guid: edc0ffd4a25a741948e55e40874f846e, type: 2}
+  - {fileID: 11400000, guid: 0915bc2e7806145d8a5de9923b9e2102, type: 2}
