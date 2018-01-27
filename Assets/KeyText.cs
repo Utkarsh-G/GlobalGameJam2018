@@ -7,9 +7,7 @@ using UnityEngine;
  * Use this class for the special text. 
  * It holds one sentence
  * + keywords
- * + verifier that keywords are in the sentence
- * + verifier that keywords are unique
- * + verifier that chars are only letters.
+ * + words banned from the clue text.
  * 
  */
 

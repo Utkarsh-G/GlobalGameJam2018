@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+
 /*
  * The class that reads in the
  * text input, and compares it
@@ -11,7 +12,7 @@ using System.Text.RegularExpressions;
  * 
  */
 
-public class Texter : MonoBehaviour {
+public class TextChecker : MonoBehaviour {
 	public KeyText keyText;
 	public Text dispUserText;
 	public InputField inText;
