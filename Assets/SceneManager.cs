@@ -47,7 +47,7 @@ public class SceneManager : MonoBehaviour {
 		Warning1.text = "";
 
 		if (!SanitizeInput (UserText.text)) {
-			Warning1.text = "Invalid characters. \nAllowed input: A-Z a-z . ? ' ,";
+			Warning1.text = "Invalid input. Avoid keywords. \nAllowed input: A-Z a-z . ? ' ,";
 			return;
 		}
 
@@ -55,9 +55,13 @@ public class SceneManager : MonoBehaviour {
 
 	}
 
-	bool SanitizeInput(string text){ //TODO: prohibit use of keywords
+	bool SanitizeInput(string text){ //TODO: prohibit "related words"
 		Regex rgx = new Regex (@"^[a-zA-Z\s\.\?',]+$");
 		bool isClean = rgx.IsMatch (text);
+		foreach (string key in keyText.KeyWords) {
+			bool hasKey = Regex.IsMatch (text, key);
+			isClean = isClean && !hasKey;
+		}
 		return isClean;
 	}
 
