@@ -14,11 +14,15 @@ using System.Text.RegularExpressions;
 
 public class SceneManager : MonoBehaviour {
 	public TextChecker myTexter;
+	public QuoteLoader quoteLoader;
+	public QuoteMaker quoteMaker;
+
 	public GameObject QuoteLoaderPanel;
 	public GameObject TextCheckerPanel;
 	public GameObject MenuPanel;
+	public GameObject QuoteMakerPanel;
 
-	public QuoteLoader quoteLoader;
+	
 
 	public QuoteListSO qList;
 	KeyText keyText;
@@ -32,13 +36,37 @@ public class SceneManager : MonoBehaviour {
 	{
 		QuoteLoaderPanel.SetActive (false);
 		TextCheckerPanel.SetActive (false);
+		QuoteMakerPanel.SetActive (false);
 		MenuPanel.SetActive (true);
+	}
+
+	public void StartMaker(){
+		QuoteLoaderPanel.SetActive (false);
+		TextCheckerPanel.SetActive (false);
+		QuoteMakerPanel.SetActive (true);
+		MenuPanel.SetActive (false);
+
+		quoteMaker.MakerInit ();
+	}
+
+	public void FromMakerToLoader(){
+		keyText = quoteMaker.SubmitQuote ();
+		if (keyText != null) {
+			QuoteLoaderPanel.SetActive (true);
+			TextCheckerPanel.SetActive (false);
+			QuoteMakerPanel.SetActive (false);
+			MenuPanel.SetActive (false);
+
+			quoteLoader.initQuoteLoader (keyText);
+		
+		}
 	}
 
 	public void StartLoader()
 	{
 		QuoteLoaderPanel.SetActive (true);
 		TextCheckerPanel.SetActive (false);
+		QuoteMakerPanel.SetActive (false);
 		MenuPanel.SetActive (false);
 
 		QuoteObj myQuote = qList.QuoteList [0];
@@ -54,7 +82,10 @@ public class SceneManager : MonoBehaviour {
 
 		if (userText != "") {
 			QuoteLoaderPanel.SetActive (false);
+			QuoteMakerPanel.SetActive (false);
 			TextCheckerPanel.SetActive (true);
+			MenuPanel.SetActive (false);
+
 			myTexter.initTexter (keyText, userText);
 		}
 
