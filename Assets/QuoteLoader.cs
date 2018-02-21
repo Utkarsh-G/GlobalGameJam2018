@@ -26,7 +26,7 @@ public class QuoteLoader : MonoBehaviour {
 		keyText = inkeyText;
 		UserText.text = "";
 
-		QuoteText.text = keyText.Sentence;
+		QuoteText.text = "Make hint for:\n" + keyText.Sentence;
 		string BanList = "Ban List: ";
 		foreach (string word in keyText.KeyWords) {
 			BanList += "\n" + word;

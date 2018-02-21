@@ -20,6 +20,7 @@ public class TextChecker : MonoBehaviour {
 	public Text warningText;
 
 	public GameObject RetryButton;
+	public GameObject AnswerButton;
 	public GameObject NewTextButton;
 
 
@@ -32,6 +33,7 @@ public class TextChecker : MonoBehaviour {
 
 		RetryButton.SetActive (false);
 		NewTextButton.SetActive (false);
+		AnswerButton.SetActive (false);
 
 	}
 
@@ -58,7 +60,7 @@ public class TextChecker : MonoBehaviour {
 			foreach (string keyword in keyText.KeyWords) {
 				if (!matchedWords.Contains(word.ToLower()) && word.ToLower() == keyword.ToLower()) {
 					score++;
-					hits += keyword + "\n";
+					hits += keyword + ", ";
 					matchedWords.Add (keyword.ToLower());
 				}
 			}
@@ -68,11 +70,21 @@ public class TextChecker : MonoBehaviour {
 		bool isExactMatch = Regex.IsMatch (inText.text, exactMatchPattern);
 
 		string exactMatchLog = isExactMatch ? "\nExact Match! +2" : "";
-		score = isExactMatch ? score + 2 : score;
+
+		if (isExactMatch)
+		{
+			score += 2;
+			AnswerButton.SetActive(false);
+			RetryButton.SetActive (false);
+		}
+		else
+		{
+			AnswerButton.SetActive(true);
+			RetryButton.SetActive (true);
+		}
 
 		scoreText.text ="Hits:\n" + hits + exactMatchLog + "\nScore:" + score.ToString ();
-
-		RetryButton.SetActive (true);
+		
 		NewTextButton.SetActive (true);
 
 	}
@@ -86,6 +98,11 @@ public class TextChecker : MonoBehaviour {
 	public void Retry()
 	{
 		this.initTexter (keyText, dispUserText.text);
+	}
+
+	public void ShowAnswer()
+	{
+		scoreText.text = keyText.Sentence;
 	}
 		
 }

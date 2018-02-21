@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0088db49bd44fed42b3c0eae97102c5b
+timeCreated: 1519238528
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hanken
+  fontNames:
+  - Hanken
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

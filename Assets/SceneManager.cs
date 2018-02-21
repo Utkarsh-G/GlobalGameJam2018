@@ -22,7 +22,10 @@ public class SceneManager : MonoBehaviour {
 	public GameObject MenuPanel;
 	public GameObject QuoteMakerPanel;
 
-	
+	public InputField QuoteLoaderInput;
+
+	private TouchScreenKeyboard keyboard;
+	bool isKeyboardOpen;
 
 	public QuoteListSO qList;
 	KeyText keyText;
@@ -30,6 +33,21 @@ public class SceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GoToMenu ();
+		isKeyboardOpen = false;
+	}
+
+	void OnGUI() {
+		/* 
+		if(QuoteLoaderInput.isFocused && !isKeyboardOpen){
+			Debug.Log("Got focus now.");
+			OpenKeyboard();
+			isKeyboardOpen = true;
+		}
+		if(!QuoteLoaderInput.isFocused && isKeyboardOpen){
+			Debug.Log("Lost focus");
+			isKeyboardOpen = false;
+		}
+		*/
 	}
 
 	public void GoToMenu()
@@ -89,6 +107,12 @@ public class SceneManager : MonoBehaviour {
 			myTexter.initTexter (keyText, userText);
 		}
 
+	}
+
+	public void OpenKeyboard()
+	{
+		Debug.Log("Trying to open keyboard");
+		keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
 	}
 
 }
