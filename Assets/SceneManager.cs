@@ -124,7 +124,7 @@ public class SceneManager : MonoBehaviour {
 
 	public void OpenKeyboard()
 	{
-		Debug.Log("Trying to open keyboard");
+		//Debug.Log("Trying to open keyboard");
 		keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
 	}
 

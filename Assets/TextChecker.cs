@@ -66,6 +66,8 @@ public class TextChecker : MonoBehaviour {
 			}
 
 		}
+		char[] charsToTrim = {',', ' '};
+		hits = hits.TrimEnd(charsToTrim);
 		string exactMatchPattern = "^" + keyText.Sentence + "$";
 		bool isExactMatch = Regex.IsMatch (inText.text, exactMatchPattern);
 
