@@ -22,6 +22,9 @@ public class SceneManager : MonoBehaviour {
 	public GameObject MenuPanel;
 	public GameObject QuoteMakerPanel;
 
+	//public GameObject Background1;
+	public GameObject Background2;
+
 	public InputField QuoteLoaderInput;
 
 	private TouchScreenKeyboard keyboard;
@@ -56,6 +59,8 @@ public class SceneManager : MonoBehaviour {
 		TextCheckerPanel.SetActive (false);
 		QuoteMakerPanel.SetActive (false);
 		MenuPanel.SetActive (true);
+
+		Background2.SetActive(false);
 	}
 
 	public void StartMaker(){
@@ -63,6 +68,8 @@ public class SceneManager : MonoBehaviour {
 		TextCheckerPanel.SetActive (false);
 		QuoteMakerPanel.SetActive (true);
 		MenuPanel.SetActive (false);
+
+		Background2.SetActive(false);
 
 		quoteMaker.MakerInit ();
 	}
@@ -75,6 +82,8 @@ public class SceneManager : MonoBehaviour {
 			QuoteMakerPanel.SetActive (false);
 			MenuPanel.SetActive (false);
 
+			Background2.SetActive(false);
+
 			quoteLoader.initQuoteLoader (keyText);
 		
 		}
@@ -86,6 +95,8 @@ public class SceneManager : MonoBehaviour {
 		TextCheckerPanel.SetActive (false);
 		QuoteMakerPanel.SetActive (false);
 		MenuPanel.SetActive (false);
+
+		Background2.SetActive(false);
 
 		QuoteObj myQuote = qList.QuoteList [0];
 
@@ -103,6 +114,8 @@ public class SceneManager : MonoBehaviour {
 			QuoteMakerPanel.SetActive (false);
 			TextCheckerPanel.SetActive (true);
 			MenuPanel.SetActive (false);
+
+			Background2.SetActive(true);
 
 			myTexter.initTexter (keyText, userText);
 		}
