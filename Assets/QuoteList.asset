@@ -12,5 +12,21 @@ MonoBehaviour:
   m_Name: QuoteList
   m_EditorClassIdentifier: 
   QuoteList:
-  - {fileID: 11400000, guid: edc0ffd4a25a741948e55e40874f846e, type: 2}
-  - {fileID: 11400000, guid: 0915bc2e7806145d8a5de9923b9e2102, type: 2}
+  - {fileID: 11400000, guid: 6b50a9be289df16489ea2b920acb13c5, type: 2}
+  - {fileID: 11400000, guid: 0f974597f9eb3924fa26cd52d3f398dd, type: 2}
+  - {fileID: 11400000, guid: 030ca0c169487d044b716388769c09fd, type: 2}
+  - {fileID: 11400000, guid: 73d3c4df00e792e4db96ddb74c322807, type: 2}
+  - {fileID: 11400000, guid: 8dbc8f411af611e4c81bea85829963e7, type: 2}
+  - {fileID: 11400000, guid: f31048b9d1c42b74f954df8a2b3f9393, type: 2}
+  - {fileID: 11400000, guid: 1511b836a0131314e832e8e06b6a9508, type: 2}
+  - {fileID: 11400000, guid: 0f722be985df7004a890d7b75a61371c, type: 2}
+  - {fileID: 11400000, guid: ca34bbbdf53d22a41a06cdb21c81d3e7, type: 2}
+  - {fileID: 11400000, guid: 4f1a583ab6d1dd8408b7ec3e239f7812, type: 2}
+  - {fileID: 11400000, guid: fc27014d1f21b4a4bb4dbfa9a1cce3b3, type: 2}
+  - {fileID: 11400000, guid: 7ac80931c33713745a82dc2601b3cd13, type: 2}
+  - {fileID: 11400000, guid: 9ee0ffdb7971bfe49aa5c0e418042c0a, type: 2}
+  - {fileID: 11400000, guid: 6768e41cd6d725f44b68538d8cc392c5, type: 2}
+  - {fileID: 11400000, guid: 7f9778c317daaff43832920bdc415ee9, type: 2}
+  - {fileID: 11400000, guid: 23f1dd96763a83f4bb34c019abfeb364, type: 2}
+  - {fileID: 11400000, guid: 8ce5bd676b4264b43b89329da727f71e, type: 2}
+  - {fileID: 11400000, guid: 384132a3f674f4041abadcd61b509603, type: 2}

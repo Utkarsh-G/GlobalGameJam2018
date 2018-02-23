@@ -98,7 +98,9 @@ public class SceneManager : MonoBehaviour {
 
 		Background2.SetActive(false);
 
-		QuoteObj myQuote = qList.QuoteList [0];
+		int index = Random.Range(0,17);
+
+		QuoteObj myQuote = qList.QuoteList [index];
 
 		keyText = new KeyText (myQuote.Quote, myQuote.Keys, myQuote.Banned);
 		quoteLoader.initQuoteLoader (keyText);

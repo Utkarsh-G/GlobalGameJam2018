@@ -8,13 +8,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: rolling
-  m_EditorClassIdentifier: Assembly-CSharp::QuoteObj
-  Quote: A rolling stone gathers no moss.
+  m_Script: {fileID: 11500000, guid: 86a770b4f61719d4db6389507edce4b8, type: 3}
+  m_Name: vessel2
+  m_EditorClassIdentifier: 
+  Quote: Empty vessels make much noise.
   Keys:
-  - rolling
-  - stone
-  - moss
+  - empty
+  - vessels
+  - noise
   Banned:
-  - roll
+  - inside
+  - sound
+  - loud
